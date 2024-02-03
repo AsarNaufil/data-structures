@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std; 
+
+void swap(int &a, int &b) {
+	int tmp = a;
+	a = b;
+	b = tmp;
+}
+
+// select minimum element and swap.
+void sort(int arr[], int n) {
+	for (int i = 0; i < n; i++) {
+		int minIdx = i;
+		for (int j = i; j < n; j++) {
+			if (arr[minIdx] > arr[j]) 
+				minIdx = j;
+		}
+		swap(arr[i], arr[minIdx]);
+	}
+}
+
+int main (int argc, char *argv[]) {
+	int arr[] = {5,3,2,4,1,7,4,8,2,0};
+	sort(arr, 10);
+	for (int i = 0; i < 10; i++) {
+		cout << arr[i] << ' ';	
+	}
+	cout << endl;
+	return 0;
+}
+
